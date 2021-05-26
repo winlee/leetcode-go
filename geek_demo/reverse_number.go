@@ -1,6 +1,8 @@
 package geek_demo
 
-import "strings"
+import (
+	"strconv"
+)
 
 /*
 无负数，数字含有0也正常返回
@@ -10,12 +12,17 @@ import "strings"
 */
 
 func reverseNumber(num int64) string {
-	var stack []string
+	var stack []int
 
 	for num > 0 {
-		stack = append(stack, (string)((int)(num)%10))
+		stack = append(stack, (int)(num)%10)
 		num /= 10
 	}
 
-	return strings.Join(stack, "")
+	var result string
+	for _, v := range stack {
+		result += strconv.Itoa(v)
+	}
+
+	return result
 }
