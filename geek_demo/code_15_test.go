@@ -29,3 +29,9 @@ func TestMutexVariable(t *testing.T) {
 		t.Failed()
 	}
 }
+
+func TestSliceTruncate(t *testing.T) {
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	fmt.Println(a[:len(a)-2])
+
+}

@@ -32,3 +32,25 @@ func findList(a []int) []int {
 
 	return stack
 }
+
+func findList2(a []int) []int {
+	var stack []int
+	for i := 0; i < len(a); i++ {
+		if len(stack) == 0 {
+			stack = append(stack, a[i])
+			continue
+		}
+
+		add := true
+		for len(stack) > 0 && stack[len(stack)-1] <= a[i] {
+			add = false
+			stack = stack[:len(stack)-1]
+		}
+
+		if add {
+			stack = append(stack, a[i])
+		}
+	}
+
+	return stack
+}
