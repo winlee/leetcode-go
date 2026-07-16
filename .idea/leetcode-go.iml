@@ -7,3 +7,20 @@
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
+
+
+
+   tag_id= tagId
+	 union_id=contentId
+	 `type`=0 // COMMENT '0:动态 1:专栏 (专栏已与动态一致)',
+	 is_hot=1 BIGINT COMMENT '是否上过热门',
+	 is_del=0 COMMENT '是否删除',
+	 add_time=当前时间//  COMMENT '添加时间',
+	 `status`=1 // BIGINT COMMENT '0-未通过审核  1-已审核 ',
+	 is_match=1 BIGINT COMMENT '后台管理字段 是否匹配 0:不匹配 1:匹配',
+	 show_status=3 // BIGINT COMMENT '动态显示状态 默认3全部显示',
+	 trend_user_id=动态内容中的userId // BIGINT COMMENT '用户id',
+	 trend_type=动态内容中的动态类型 // BIGINT COMMENT '动态类型',
+	 trend_create_time=动态内容中的发布时间 // BIGINT COMMENT '动态发布时间',
+	 modify_time=当前时间 //  BIGINT COMMENT '更新时间',
+	 topic_content_audit_result=1 // BIGINT COMMENT '话题相关性审核结果 0-无审核|1-审核通过 | 2-不通过'

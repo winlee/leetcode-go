@@ -1,3 +1,4 @@
+package leetcode
 /*
  * @lc app=leetcode id=503 lang=golang
  *
@@ -55,27 +56,18 @@
 func nextGreaterElements(nums []int) []int {
     n := len(nums)
 	ans := make([]int,len(nums))
+	for i :=range nums {
+		ans[i] = -1
+	}
 	st := []int{}
 
-	for i := 0; i < n; i++ {
-		ans[i] = -1
-		for len(st)> 0 && nums[i]>nums[st[len(st)-1]] {
-			ans[st[len(st)-1]]	= nums[i]
+	for i := 0; i < 2*n-1; i++ {
+		for len(st)> 0 && nums[st[len(st)-1]] < nums[i%n] {
+			ans[st[len(st)-1]]= nums[i%n]
 			st = st[:len(st)-1]
 		}
 
-		st = append(st, i)
-	}
-
-	for len(st)> 0 {
-		last := st[len(st)-1]
-		for _, v := range nums {
-			if v > nums[last] {
-				ans[last] = v 
-				break
-			}
-		}
-		st = st[:len(st)-1]
+		st = append(st, i%n)
 	}
 
 	return ans
